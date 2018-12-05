@@ -1,0 +1,25 @@
+{
+  "name": "kinedu/payu-php",
+  "description": "PayU PHP Library",
+  "keywords": [
+    "payu",
+    "card payment",
+    "payment processing",
+    "api"
+  ],
+  "homepage": "http://www.payu.com.co/",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "PayU and contributors",
+      "homepage": "https://github.com/developers-payu-latam/payu-latam-php-payments-sdk"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.3",
+    "ext-curl": "*",
+    "ext-json": "*",
+    "ext-mbstring": "*",
+    "tcdent/php-restclient": "*"
+  }
+}
