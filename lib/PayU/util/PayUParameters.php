@@ -1,14 +1,16 @@
 <?php
 
+namespace PayU;
+
 /**
  *
- * Contains the parameters names 
+ * Contains the parameters names
  * used in the differents methods
- * 
+ *
  * @author PayU Latam
  * @since 1.0.0
  * @version 1.0.0, 17/10/2013
- * 
+ *
  */
 class PayUParameters {
 
@@ -46,11 +48,11 @@ class PayUParameters {
 	const PAYMENT_METHOD = 'paymentMethod';
 	/** The reason for cancellation of transaction. */
 	const REASON = 'reason';
-	
+
 
 	/** The number of installments on the purchase. */
 	const INSTALLMENTS_NUMBER = 'installmentsNumber';
-	/** The constant promotion id **/       
+	/** The constant promotion id **/
 	const PROMOTION_ID = 'promotionId';
 	/** The number on the credit card. */
 	const CREDIT_CARD_NUMBER = 'creditCardNumber';
@@ -67,11 +69,11 @@ class PayUParameters {
 	const PAYER_ID = 'payerId';
 	/** The payer's contact e-mail. */
 	const PAYER_EMAIL = 'payerEmail';
-	/** The payer's CNPJ. */	
+	/** The payer's CNPJ. */
 	const PAYER_CNPJ = 'payerCNPJ';
-	/** The payer's contact phone. */	
+	/** The payer's contact phone. */
 	const PAYER_CONTACT_PHONE = 'payerContactPhone';
-	/** The payer's DNI. */	
+	/** The payer's DNI. */
 	const PAYER_DNI = 'payerDNI';
 	/** The payer's DNI type. */
 	const PAYER_DNI_TYPE = "payerDNIType";
@@ -79,17 +81,17 @@ class PayUParameters {
 	const PAYER_BUSINESS_NAME = "payerBusinessName";
 	/** The payer's birth day */
 	const PAYER_BIRTHDATE = "payerBirthDate";
-	
-	
 
-	
+
+
+
 	/** The payer's city. */
 	const PAYER_CITY = 'payerCity';
 	/** The payer's country. */
 	const PAYER_COUNTRY = 'payerCountry';
-	/** The payer's phone. */	
+	/** The payer's phone. */
 	const PAYER_PHONE = 'payerPhone';
-	/** The payer's postal code. */	
+	/** The payer's postal code. */
 	const PAYER_POSTAL_CODE = 'payerPostalCode';
 	/** The payer's state. */
 	const PAYER_STATE = 'payerState';
@@ -99,8 +101,8 @@ class PayUParameters {
 	const PAYER_STREET_2 = 'payerStreet2';
 	/** The payer's address (part 3). */
 	const PAYER_STREET_3 = 'payerStreet3';
-	
-	
+
+
 	/** The buyers name */
 	const BUYER_NAME = 'buyerName';
 	/** The buyer's id on the merchant. */
@@ -113,7 +115,7 @@ class PayUParameters {
 	const BUYER_CONTACT_PHONE = 'buyerContactPhone';
 	/** The buyer's DNI. */
 	const BUYER_DNI = 'payerDNI';
-	
+
 	/** The buyer's city. */
 	const BUYER_CITY = 'buyerCity';
 	/** The buyer's country. */
@@ -130,12 +132,12 @@ class PayUParameters {
 	const BUYER_STREET_2 = 'buyerStreet2';
 	/** The buyer's address (part 3). */
 	const BUYER_STREET_3 = 'buyerStreet3';
-	
-	
+
+
 	/** The payer's Ip address*/
 	const IP_ADDRESS = 'ipAddress';
-	
-	const PAYER_COOKIE = 'PAYER_COOKIE';	
+
+	const PAYER_COOKIE = 'PAYER_COOKIE';
 
 	/** Start date to filter. */
 	const START_DATE = 'startDate';
@@ -151,8 +153,8 @@ class PayUParameters {
 	const CUSTOMER_ID = 'customerId';
 	/** The customer's contact e-mail. */
 	const CUSTOMER_EMAIL = 'customerEmail';
-	
-	
+
+
 
 	/** The plan id. */
 	const PLAN_ID = 'planId';
@@ -178,12 +180,12 @@ class PayUParameters {
 	const PLAN_MAX_PAYMENTS = 'maxPaymentsAllowed';
 	/** The plan attempts delay. */
 	const PLAN_ATTEMPTS_DELAY = "paymentAttemptsDelay";
-	
+
 	/** The plan max payments attempts delay. */
 	const PLAN_MAX_PAYMENT_ATTEMPTS = 'maxPaymentAttempts';
 	/** The plan max pending payments. */
 	const PLAN_MAX_PENDING_PAYMENTS = 'maxPendingPayments';
-	
+
 
 	/** The subscription id. */
 	const SUBSCRIPTION_ID = 'subscriptionId';
@@ -192,10 +194,10 @@ class PayUParameters {
 	const TRIAL_DAYS = 'trialDays';
 	/** The quantity to purchase. */
 	const QUANTITY = 'quantity';
-	
+
 	/** If the client accepted the terms and conditions document. */
 	const TERMS_AND_CONDITIONS_ACEPTED = "termsAndConditionsAcepted";
-		
+
 	/** The state of the subscription*/
 	const SUBSCRIPTION_STATE = 'state';
 
@@ -207,10 +209,10 @@ class PayUParameters {
 	const ITEM_TAX = 'itemTax';
 	/** The item tax return base. */
 	const ITEM_TAX_RETURN_BASE = 'itemTaxReturnBase';
-	
+
 	/**	Whether a transaction must process the cvv2 field */
 	const PROCESS_WITHOUT_CVV2 = 'processWithoutCvv2';
-	
+
 	/** PSE payer ISO document type */
 	const PAYER_DOCUMENT_TYPE='payerDocumentType';
 	/** PSE payer person type (N - Natural or J - Legal) */
@@ -220,7 +222,7 @@ class PayUParameters {
 	/** PSE financial institution name (Bank Name) */
 	const PSE_FINANCIAL_INSTITUTION_NAME = "pseFinancialInstitutionName";
 
-	//Params for Bank Accounts for Paymnet Plans 
+	//Params for Bank Accounts for Paymnet Plans
 	/** Id of the account holder */
 	const BANK_ACCOUNT_ID = 'bankAccountId';
 	/** Document Number of the account holder */
@@ -253,31 +255,31 @@ class PayUParameters {
 	const RECURRING_BILL_STATE = 'state';
 	/** the recurring bill payment method type */
 	const RECURRING_BILL_PAYMENT_METHOD_TYPE = 'paymentMethod';
-	
-	
-		
+
+
+
 	/**
 	 * Limits the amount of results in a query
 	 */
 	const LIMIT = "limit";
-	
+
 	/**
 	 * Specifies where to start in a query with many results
 	 */
 	const OFFSET = "offset";
-	
+
 	/**
 	 * Specifies whether an account is active or not
 	 */
 	const ACCOUNT_STATE = "state";
-	
-	/** 
-	 * The confirmation page URL 
+
+	/**
+	 * The confirmation page URL
 	 */
 	const  NOTIFY_URL = "notifyUrl";
-	
-	/** 
-	 * The response page URL 
+
+	/**
+	 * The response page URL
 	 */
 	const RESPONSE_URL = "responseUrl";
 

@@ -1,5 +1,11 @@
 <?php
 
+namespace PayU;
+
+use DateTime;
+use stdClass;
+use InvalidArgumentException;
+
 /**
  *
  * Util class for WEB request
@@ -7,11 +13,11 @@
  * @author PayU Latam
  * @since 1.0.0
  * @version 1.0
- * 
+ *
  */
 class CommonRequestUtil{
-	
-	
+
+
 	/**
 	 * Add to request object common info to proccess a request
 	 * @param string $lang language to be used
@@ -26,7 +32,7 @@ class CommonRequestUtil{
 		$request->test = PayU::$isTest;
 		return $request;
 	}
-	
+
 	/**
 	 * Build a merchant to be added to request
 	 * @return the merchant built
@@ -37,9 +43,9 @@ class CommonRequestUtil{
 		$merchant->apiKey= PayU::$apiKey;
 		return $merchant;
 	}
-	
-	
-	
+
+
+
 	/**
 	 * Adds an entry to the map object the value and key must be not null
 	 * @param Object $map
@@ -49,39 +55,39 @@ class CommonRequestUtil{
 	 *
 	 */
 	public static function addMapEntry($map, $key, $value){
-	
+
 		if( !isset($map) ){
 			$map = new stdClass();
 		}
-		
+
 		if(isset($key) && isset($value)){
 			$map->$key = $value;
 		}
-		
+
 		return $map;
 	}
-	
-	
-	
+
+
+
 	/**
-	 * 
-	 * Validate if the both required or invalid parameters exist in the parameters array 
+	 *
+	 * Validate if the both required or invalid parameters exist in the parameters array
 	 * @param array $parameters holds the parameters
 	 * @param array $required holds the key names of the required parameters
-	 * @param array $invalid holds the key names of the invalid parameters 
+	 * @param array $invalid holds the key names of the invalid parameters
 	 * @throws InvalidParameterException
 	 */
 	static function validateParameters($parameters,	$required = NULL, $invalid = NULL) {
 
 		$errorMessage = null;
 		$isError = false;
-				
+
 		if (empty($parameters)) {
 			throw new InvalidArgumentException("Parameters can not be null or empty.");
 		}else if(empty($required) && empty($invalid)){
 			throw new InvalidArgumentException(" both the required and invalid parameter are null");
 		}else {
-			
+
 			if(isset($required)){
 				foreach ($required as $r){
 					if (!array_key_exists($r,$parameters)
@@ -91,7 +97,7 @@ class CommonRequestUtil{
 					}
 				}
 			}
-			
+
 			if(isset($invalid)){
 				foreach ($invalid as $r){
 					if (array_key_exists($r,$parameters)) {
@@ -100,15 +106,15 @@ class CommonRequestUtil{
 					}
 				}
 			}
-			
+
 		}
-	
+
 		if ($isError) {
 			throw new InvalidArgumentException($errorMessage);
 		}
-	
+
 	}
-	
+
 	/**
 	* determines whether any parameter key is within the parameters set
 	* @param array $parameters holds the parameters
@@ -126,12 +132,12 @@ class CommonRequestUtil{
 						break;
 					}
 				}
-			}			
-			
+			}
+
 		}
 		return $wasFound;
-	}	
-	
+	}
+
 	/**
 	 * Returns a parameter value only if is not a empty string null the otherwise
 	 * @param array $parameters the parameter array
@@ -143,15 +149,15 @@ class CommonRequestUtil{
 			if(is_string($parameters[$index])){
 				$parameters[$index] = trim($parameters[$index]);
 			}
-			
+
 			if(!is_string($parameters[$index]) || $parameters[$index] != ''){
 				return $parameters[$index];
 			}
 		}
 		return NULL;
 	}
-	
-	
+
+
 	/**
 	 * Build a basic credit card object to be added to payment request
 	 * @param object $parameters with the credit card info
@@ -165,11 +171,11 @@ class CommonRequestUtil{
 		$creditCard->securityCode = CommonRequestUtil::getParameter($parameters, PayUParameters::CREDIT_CARD_SECURITY_CODE);
 		$creditCard->processWithoutCvv2 = (bool) CommonRequestUtil::getParameter($parameters, PayUParameters::PROCESS_WITHOUT_CVV2);
 		$creditCard->document = CommonRequestUtil::getParameter($parameters, PayUParameters::CREDIT_CARD_DOCUMENT);
-	
+
 		return $creditCard;
 	}
-	
-	
+
+
 	/**
 	 * Validates a date string whit the payments date format
 	 *
@@ -189,14 +195,14 @@ class CommonRequestUtil{
 		}
 		return true;
 	}
-	
-	
+
+
 	/**
 	 * Adds the attributes of params as "@QueryParms" to the given url
-	 * 
+	 *
 	 * @param string $url the base url
 	 * @param string $params a stdClass containing the params to be added
-	 * 
+	 *
 	 * @return the url with the params appended to it
 	 */
 	public static function addQueryParamsToUrl($url, $params){
@@ -205,8 +211,8 @@ class CommonRequestUtil{
 			$url = $url . "?" . $query;
 		}
 		return $url;
-	}	
-	
+	}
+
 }
 
 

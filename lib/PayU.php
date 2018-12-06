@@ -1,5 +1,7 @@
 <?php
 
+namespace PayU;
+
 require_once dirname(__FILE__).'/PayU/api/SupportedLanguages.php';
 require_once dirname(__FILE__).'/PayU/api/PayUKeyMapName.php';
 require_once dirname(__FILE__).'/PayU/api/PayUCommands.php';
@@ -42,23 +44,17 @@ require_once dirname(__FILE__).'/PayU/PayUCreditCards.php';
 require_once dirname(__FILE__).'/PayU/PayURecurringBill.php';
 require_once dirname(__FILE__).'/PayU/PayURecurringBillItem.php';
 
-
-
-
-
-
-
 /**
  *
  * Holds basic request information
- * 
+ *
  * @author PayU Latam
  * @since 1.0.0
  * @version 1.0.0, 20/10/2013
  *
  */
 abstract class PayU {
-	
+
 	/**
 	 * Api version
 	 */
@@ -68,8 +64,8 @@ abstract class PayU {
 	 * Api name
 	 */
 	const  API_NAME = "PayU SDK";
-	
-	
+
+
 	const API_CODE_NAME = "PAYU_SDK";
 
 	/**
@@ -96,7 +92,7 @@ abstract class PayU {
 	 * The request language
 	 */
 	public static $language = SupportedLanguages::ES;
-	
+
 
 }
 

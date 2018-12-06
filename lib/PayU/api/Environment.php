@@ -1,5 +1,10 @@
 <?php
 
+namespace PayU;
+
+use ErrorException;
+use InvalidArgumentException;
+
 /**
  * Contains information about the Environment setup
  *
@@ -9,54 +14,54 @@
  *
  */
 class Environment {
-	
+
 	/** name for payments api*/
 	const PAYMENTS_API = "PAYMENTS_API";
-	
+
 	/** name for reports api*/
 	const REPORTS_API = "REPORTS_API";
-	
+
 	/** name for subscriptions api */
 	const SUBSCRIPTIONS_API = "SUBSCRIPTIONS_API";
-	
+
 	/** url used to payments service api  */
 	private static $paymentsUrl = "https://api.payulatam.com/payments-api/4.0/service.cgi";
-	
+
 	/** url used to reports service api  */
 	private static $reportsUrl = "https://api.payulatam.com/reports-api/4.0/service.cgi";
-	
+
 	/** url used to subscriptions service api  */
 	private static $subscriptionsUrl = "https://api.payulatam.com/payments-api/rest/v4.3";
-	
+
 	/** url used to subscriptions service api  if the test variable is true */
 	private static $paymentsTestUrl = "https://api.payulatam.com/payments-api/4.0/service.cgi";
-	
+
 	/** url used to reports service api  if the test variable is true */
 	private static $reportsTestUrl = "https://api.payulatam.com/reports-api/4.0/service.cgi";
-	
+
 	/** url used to subscriptions service api  if the test variable is true */
 	private static $subscriptionsTestUrl = "https://api.payulatam.com/payments-api/rest/v4.3";
-	
+
 	/** url used to subscriptions service api  if is not null*/
 	private static $paymentsCustomUrl = null;
 
 	/** url used to reports service api  if is not null*/
 	private static $reportsCustomUrl = null;
-	
+
 	/** url used to subscriptions service api  if is not null*/
 	private static $subscriptionsCustomUrl = null;
-	
-	
+
+
 	/** if this is true the test url is used to request*/
 	static $test = false;
-	
-	
+
+
 	/**
 	 * Gets the suitable url to the api sent
-	 * @param  the api to get the url it can have three values 
+	 * @param  the api to get the url it can have three values
 	 * PAYMENTS_API, REPORTS_API, SUBSCRIPTIONS_API
 	 * @throws InvalidArgumentException if the api value doesn't have a valid value
-	 * @return string with the url  
+	 * @return string with the url
 	 */
 	static function getApiUrl($api){
 		switch ($api){
@@ -70,7 +75,7 @@ class Environment {
 				throw new InvalidArgumentException(sprintf('the api argument [%s] is invalid please check the Environment class ' ,$api));
 		}
 	}
-	
+
 	/**
 	 * Returns the payments url
 	 * @return  the paymets url configured
@@ -79,14 +84,14 @@ class Environment {
 		if(isset(Environment::$paymentsCustomUrl)) {
 			return Environment::$paymentsCustomUrl;
 		}
-		
+
 		if(!Environment::$test) {
 			return Environment::$paymentsUrl;
 		}else {
 			return Environment::$paymentsTestUrl;
 		}
 	}
-	
+
 	/**
 	 * Returns the reports url
 	 * @return the reports url
@@ -95,14 +100,14 @@ class Environment {
 		if(Environment::$reportsCustomUrl != null) {
 			return Environment::$reportsCustomUrl;
 		}
-		
+
 		if(!Environment::$test) {
 			return Environment::$reportsUrl;
 		}else {
 			return Environment::$reportsTestUrl;
 		}
 	}
-	
+
 	/**
 	 * Returns the subscriptions url
 	 * @return the subscriptions url
@@ -111,15 +116,15 @@ class Environment {
 		if(Environment::$subscriptionsCustomUrl != null) {
 			return Environment::$subscriptionsCustomUrl;
 		}
-	
+
 		if(!Environment::$test) {
 			return Environment::$subscriptionsTestUrl;
 		}else {
 			return Environment::$subscriptionsUrl;
 		}
 	}
-	
-	
+
+
 	/**
 	 * Set a  custom payments url
 	 * @param string $paymentsCustomUrl
@@ -143,7 +148,7 @@ class Environment {
 	static function setSubscriptionsCustomUrl($subscriptionsCustomUrl){
 		Environment::$subscriptionsCustomUrl = $subscriptionsCustomUrl;
 	}
-	
+
 	/**
 	 * Validates the Environment before process any request
 	 * @throws ErrorException
@@ -152,8 +157,8 @@ class Environment {
 		if(version_compare(PHP_VERSION, '5.2.1', '<'))  {
 			throw new ErrorException('PHP version >= 5.2.1 required');
 		}
-		
-		
+
+
 		$requiredExtensions = array('curl','xml','mbstring','json');
 		foreach ($requiredExtensions AS $ext)  {
 			if (!extension_loaded($ext))  {
@@ -161,5 +166,5 @@ class Environment {
 			}
 		}
 	}
-	
+
 }

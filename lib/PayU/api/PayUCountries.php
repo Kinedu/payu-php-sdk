@@ -1,4 +1,7 @@
 <?php
+
+namespace PayU;
+
 /**
  * Class contains payments countries in the PayU SDK. Sometimes when a payment
  * method is processed by several countries is necessary to specify the country
@@ -30,7 +33,7 @@ class PayUCountries{
 	 * When the payment country is Mexico.
 	 */
 	const MX = 'MX';
-	
+
 	/**
 	 * When the payment country is Panama.
 	 */
@@ -39,11 +42,11 @@ class PayUCountries{
 	 * When the payment country is Peru.
 	 */
 	const PE = 'PE';
-	
+
 	/**
 	 * When the payment country is United States.
 	 */
 	const US = 'US';
-	
+
 
 }

@@ -1,4 +1,7 @@
 <?php
+
+namespace PayU;
+
 /**
  * This class contains the payu commands
  * availables in payu platform
@@ -24,31 +27,31 @@ class PayUCommands {
 
 	/** Create token */
 	const CREATE_TOKEN = "CREATE_TOKEN";
-	
+
 	/** Remove  token */
 	const REMOVE_TOKEN = "REMOVE_TOKEN";
-	
+
 	/** Create batch tokens */
 	const CREATE_BATCH_TOKENS = "CREATE_BATCH_TOKENS";
-	
+
 	/** Process the batch of transactions with tokens */
 	const PROCESS_BATCH_TRANSACTIONS_TOKEN = "PROCESS_BATCH_TRANSACTIONS_TOKEN";
 
 	/** Return a order detail */
 	const ORDER_DETAIL = "ORDER_DETAIL";
-	
+
 	/** Return a transaction response detail */
 	const TRANSACTION_RESPONSE_DETAIL = "TRANSACTION_RESPONSE_DETAIL";
-	
+
 	/** Return a transaction response detail by reference code */
 	const ORDER_DETAIL_BY_REFERENCE_CODE = "ORDER_DETAIL_BY_REFERENCE_CODE";
-	
+
 	/** Search batch credit card token */
 	const BATCH_CREDIT_CARD_TOKEN = "BATCH_CREDIT_CARD_TOKEN";
 
 	/** Find a token by payer */
 	const GET_TOKENS = "GET_TOKENS";
-	
+
 	/** Evaluate if a payment method is available in Payments API */
 	const GET_PAYMENT_METHOD_AVAILABILITY = "GET_PAYMENT_METHOD_AVAILABILITY";
 

@@ -1,5 +1,7 @@
 <?php
 
+namespace PayU;
+
 require_once 'PHPUnit/Autoload.php';
 require_once dirname(__FILE__).'/../Payu.php';
 require_once dirname(__FILE__).'/PayUTestUtil.php';
@@ -14,8 +16,8 @@ require_once dirname(__FILE__).'/PayUTestUtil.php';
  */
 class RequestPaymentsUtilTest extends PHPUnit_Framework_TestCase
 {
-	
-	
+
+
 	/**
 	 * test to build Transaction Request
 	 */
@@ -24,7 +26,7 @@ class RequestPaymentsUtilTest extends PHPUnit_Framework_TestCase
 		PayU::$apiKey = PayUTestUtil::API_KEY;
 		PayU::$merchantId = PayUTestUtil::MERCHANT_ID;
 		Environment::setPaymentsCustomUrl(PayUTestUtil::PAYMENTS_CUSTOM_URL);
-		
+
 		$parameters = PayUTestUtil::buildSuccessParametersCreditCard(
 				array(
 						PayUParameters::PAYMENT_METHOD=>'VISA',
@@ -45,23 +47,23 @@ class RequestPaymentsUtilTest extends PHPUnit_Framework_TestCase
 						PayUParameters::NOTIFY_URL => 'www.payu.com',
 						PayUParameters::RESPONSE_URL => 'www.payu.com'
 					));
-		
+
 		$request = RequestPaymentsUtil::buildPaymentRequest($parameters, TransactionType::AUTHORIZATION_AND_CAPTURE
 				,SupportedLanguages::ES);
 		$transaction = $request->transaction;
 		$this->assertNotEmpty($transaction);
-		
+
 		$order = $transaction->order;
 		$this->assertNotEmpty($order);
 		$this->assertNotEmpty($order->notifyUrl);
-		
+
 		$extraParameters = $transaction ->extraParameters;
 		$this->assertNotEmpty($extraParameters);
-		
+
 		$key = PayUKeyMapName::RESPONSE_URL;
-		$responseURL = $extraParameters->$key;	
+		$responseURL = $extraParameters->$key;
 		$this->assertNotEmpty($responseURL);
 	}
-	
-	
+
+
 }

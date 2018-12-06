@@ -1,5 +1,7 @@
 <?php
 
+namespace PayU;
+
 /**
  * Available PayU response codes for request
 
@@ -9,11 +11,11 @@
  *
  */
 class PayUResponseCode {
-	
+
 	/** the request was processed successfully */
 	const SUCCESS = 'SUCCESS';
-	
+
 	/** the request can't be processed */
 	const ERROR = 'ERROR';
-	
+
 }

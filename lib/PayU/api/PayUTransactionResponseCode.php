@@ -1,4 +1,7 @@
 <?php
+
+namespace PayU;
+
 /**
  * Contains the response codes for a transaction in the PayU SDK.
  * @author PayU Latam
@@ -66,7 +69,7 @@ class PayUTransactionResponseCode {
 	const PAYMENT_NETWORK_NO_CONNECTION = 'PAYMENT_NETWORK_NO_CONNECTION';
 	/** Payment network not sending response code */
 	const PAYMENT_NETWORK_NO_RESPONSE = 'PAYMENT_NETWORK_NO_RESPONSE';
-	
+
 	//Clinic
 	/** Fix was not required code */
 	const FIX_NOT_REQUIRED = 'FIX_NOT_REQUIRED';

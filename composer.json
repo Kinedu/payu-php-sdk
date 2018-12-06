@@ -21,5 +21,10 @@
     "ext-json": "*",
     "ext-mbstring": "*",
     "tcdent/php-restclient": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "PayU\\" : "lib/"
+    }
   }
 }

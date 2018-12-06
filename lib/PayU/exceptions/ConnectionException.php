@@ -1,16 +1,18 @@
 <?php
 
+namespace PayU;
+
 /**
- * 
- * Payu exception throw when the api service cann't 
+ *
+ * Payu exception throw when the api service cann't
  * connect with the server
  * @author PayU Latam
  * @since 1.0.0
  * @version 1.0
- * 
+ *
  */
-class ConnectionException extends Exception{
-	
+class ConnectionException extends \Exception {
+
 	/**
 	 * constructor method
 	 * @param string $payuCode a element of PayUErrorCodes
@@ -22,5 +24,5 @@ class ConnectionException extends Exception{
 		$this->payUCode = $payuCode;
 		parent::__construct($message,$code, $previous);
 	}
-	
+
 }
