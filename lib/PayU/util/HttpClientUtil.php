@@ -3,7 +3,6 @@
 namespace PayU;
 
 use RuntimeException;
-use ConnectionException;
 
 /**
  * Utility class for send http request
